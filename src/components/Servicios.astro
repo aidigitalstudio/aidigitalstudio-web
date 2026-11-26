@@ -1,96 +1,28 @@
 ---
-// src/components/Servicios.astro
-
 const servicios = [
-  {
-    icono: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
-    titulo: 'Desarrollo web',
-    descripcion: 'Tu página, lista para trabajar. Rápida, segura, fácil de usar y que se ve perfecta en cualquier celular o computadora.',
-  },
-  {
-    icono: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
-    titulo: 'Presencia digital',
-    descripcion: 'Que te encuentren. Configuramos tu perfil de Google, redes sociales y todo lo necesario para que tu negocio aparezca donde tus clientes buscan.',
-  },
-  {
-    icono: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
-    titulo: 'Diseño estratégico',
-    descripcion: 'No solo que se vea bien, sino que convierta. Diseñamos con intención: cada color, texto e imagen lleva al visitante a contactarte.',
-  },
+ { tipo: 'web', titulo: 'Desarrollo web', descripcion: 'Páginas esenciales de una sola vista o sitios informativos completos, rápidos y adaptados a celular, con acceso directo a WhatsApp.' },
+ { tipo: 'presencia', titulo: 'Presencia digital', descripcion: 'Conectamos WhatsApp, redes sociales y tus datos clave para que tus clientes encuentren fácil lo que necesitan.' },
+ { tipo: 'estrategia', titulo: 'Diseño estratégico', descripcion: 'Organizamos estructura, textos y llamadas a la acción para que quien entra entienda lo que ofreces y pueda escribirte.' },
 ];
 ---
-
-<section
-  id="servicios"
-  class="section bg-blanco"
-  aria-labelledby="servicios-heading"
->
-  <div class="container">
-    <header style="margin-bottom: 3.5rem;">
-      <span class="section-label reveal">¿Qué hacemos?</span>
-      <h2
-        id="servicios-heading"
-        class="section-title reveal delay-100"
-      >
-        Servicios diseñados para crecer
-      </h2>
-      <p class="section-subtitle reveal delay-200">
-        Todo lo que tu negocio necesita para tener una presencia digital sólida,
-        en un solo lugar y con personas que realmente te escuchan.
-      </p>
-    </header>
-
-    <div
-      style="display: grid; grid-template-columns: 1fr; gap: 1.75rem;"
-      class="servicios-grid"
-    >
-      {servicios.map((s, i) => (
-        <article
-          class={`card reveal delay-${(i + 1) * 100}`}
-          aria-label={`Servicio: ${s.titulo}`}
-        >
-          <!-- Ícono -->
-          <div
-            style="
-              width: 60px; height: 60px;
-              background-color: rgba(43,191,191,0.1);
-              border-radius: 0.75rem;
-              display: flex; align-items: center; justify-content: center;
-              margin-bottom: 1.25rem;
-              color: var(--color-turquesa);
-            "
-            set:html={s.icono}
-          />
-
-          <h3
-            class="font-titulo text-carbon"
-            style="font-size: 1.1875rem; font-weight: 700; margin-bottom: 0.75rem;"
-          >
-            {s.titulo}
-          </h3>
-
-          <p
-            class="font-texto text-carbon-suave"
-            style="font-size: 0.9375rem; line-height: 1.7;"
-          >
-            {s.descripcion}
-          </p>
-        </article>
-      ))}
+<section id="servicios" class="section bg-blanco" aria-labelledby="servicios-heading">
+ <div class="container">
+  <header class="services-heading"><span class="section-label reveal">Servicios</span><h2 id="servicios-heading" class="section-title reveal delay-100">Lo esencial para estar en línea.</h2><p class="section-subtitle reveal delay-200">Páginas funcionales y una presencia digital clara, pensadas para el día a día de tu negocio.</p></header>
+  <div class="services-grid">
+   {servicios.map((s,i)=><article class={`service-card reveal delay-${(i+1)*100}`}>
+    <div class={`service-preview ${s.tipo}`} aria-hidden="true">
+     {s.tipo==='web' && <><div class="preview-browser"><i></i><i></i><i></i><span>tu-negocio.pa</span></div><div class="web-preview"><div class="preview-nav"><b></b><span></span></div><div class="web-layout"><div><i class="tiny-label"></i><i class="headline-line"></i><i class="headline-line short"></i><i class="copy-line"></i><i class="copy-line medium"></i><i class="orange-cta"></i></div><div class="web-art"><i></i><b></b></div></div></div></>}
+     {s.tipo==='presencia' && <><div class="presence-title"><i></i><b>Canales conectados</b></div><div class="channel-row"><span class="channel-icon">W</span><div><b>WhatsApp</b><i></i></div><span class="channel-check">✓</span></div><div class="channel-row"><span class="channel-icon">◎</span><div><b>Redes sociales</b><i></i></div><span class="channel-check">✓</span></div><div class="channel-row"><span class="channel-icon">⌖</span><div><b>Datos del negocio</b><i></i></div><span class="channel-check">✓</span></div></>}
+     {s.tipo==='estrategia' && <><div class="strategy-label">Recorrido claro</div><div class="strategy-layout"><div class="strategy-copy"><i class="tiny-label"></i><b>Tu servicio,<br/>fácil de entender.</b><i class="copy-line"></i><i class="copy-line medium"></i><span class="orange-cta"></span></div><div class="strategy-steps"><span><i>01</i>Qué ofreces</span><span><i>02</i>Para quién</span><span><i>03</i>Cómo escribirte</span></div></div></>}
     </div>
+    <div class="service-copy"><span class="service-index">0{i+1}</span><h3 class="font-titulo text-carbon">{s.titulo}</h3><p class="font-texto text-carbon-suave">{s.descripcion}</p></div>
+   </article>)}
   </div>
+ </div>
 </section>
-
 <style>
-  @media (min-width: 640px) {
-    .servicios-grid {
-      grid-template-columns: 1fr 1fr !important;
-    }
-  }
-  @media (min-width: 900px) {
-    .servicios-grid {
-      grid-template-columns: 1fr 1fr 1fr !important;
-    }
-  }
+.services-heading{max-width:610px;margin-bottom:2.5rem}.services-heading .section-title{max-width:16ch}.services-heading .section-subtitle{margin-top:.3rem}.services-grid{display:grid;grid-template-columns:1fr;gap:1.15rem}.service-card{overflow:hidden;border:1px solid #e5e5e5;border-radius:1rem;background:#fff;transition:transform .22s ease,box-shadow .22s ease}.service-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(45,45,45,.08)}.service-preview{height:195px;margin:.8rem .8rem 0;padding:1rem;border:1px solid #e7efed;border-radius:.65rem;background:#f5f9f8;overflow:hidden}.preview-browser{height:1.65rem;padding:0 .5rem;display:flex;align-items:center;gap:.25rem;border:1px solid #e5e5e5;border-bottom:0;border-radius:.4rem .4rem 0 0;background:#fff}.preview-browser i{width:.35rem;height:.35rem;border-radius:50%;background:#b6d8ce}.preview-browser span{margin:auto;font:500 .5rem var(--font-texto);color:#596361}.web-preview{height:calc(100% - 1.65rem);padding:.55rem;background:white;border:1px solid #e5e5e5;border-radius:0 0 .4rem .4rem}.preview-nav{height:.7rem;display:flex;justify-content:space-between;border-bottom:1px solid #edf1ef}.preview-nav b{width:2rem;height:.23rem;border-radius:1rem;background:#378e7c}.preview-nav span{width:2.6rem;height:.23rem;border-radius:1rem;background:#e4ece9}.web-layout{height:calc(100% - .7rem);display:grid;grid-template-columns:1.1fr .8fr;gap:.5rem;align-items:center;padding:.45rem .2rem}.web-layout>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:.27rem}.tiny-label{width:2.3rem;height:.18rem;background:#a5cfc2;border-radius:1rem}.headline-line{height:.42rem;width:92%;background:#38433f;border-radius:.12rem}.headline-line.short{width:66%}.copy-line{width:92%;height:.16rem;background:#dfe8e5;border-radius:1rem}.copy-line.medium{width:69%}.orange-cta{display:block;width:2.8rem;height:.42rem;margin-top:.15rem;border-radius:1rem;background:#f76e3a}.web-art{position:relative;height:4.7rem;border-radius:.35rem;background:#e6f1ed;overflow:hidden}.web-art i{position:absolute;left:17%;bottom:0;width:68%;height:66%;border-radius:50% 50% 0 0;background:#a9d5c6}.web-art b{position:absolute;right:18%;top:15%;width:1.4rem;height:1.4rem;border-radius:50%;background:#d7c58c}.service-preview.presencia{padding:1.2rem 1.35rem;background:linear-gradient(130deg,#f5f9f8,#edf6f3)}.presence-title{display:flex;align-items:center;gap:.5rem;margin-bottom:.65rem;color:#38433f;font:.7rem var(--font-titulo)}.presence-title i{width:.4rem;height:.4rem;border-radius:50%;background:#218c8c}.channel-row{display:flex;align-items:center;gap:.55rem;padding:.48rem .6rem;margin:.35rem 0;border:1px solid #e3ebe8;border-radius:.5rem;background:#fff}.channel-icon{width:1.55rem;height:1.55rem;display:grid;place-items:center;border-radius:.42rem;background:#eaf5f1;color:#176f6f;font:700 .75rem var(--font-titulo)}.channel-row>div{display:flex;flex:1;flex-direction:column;gap:.22rem}.channel-row>div b{font:650 .58rem var(--font-titulo);color:#38433f}.channel-row>div i{width:55%;height:.17rem;border-radius:1rem;background:#e5ece9}.channel-check{font:700 .75rem var(--font-titulo);color:#176f6f}.service-preview.estrategia{padding:1.1rem 1.3rem;background:#f7f9f8}.strategy-label{margin-bottom:.55rem;color:#176f6f;font:700 .55rem var(--font-titulo);letter-spacing:.06em;text-transform:uppercase}.strategy-layout{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;align-items:center}.strategy-copy{display:flex;flex-direction:column;align-items:flex-start;gap:.32rem}.strategy-copy b{font:750 .9rem/1.15 var(--font-titulo);color:#2d2d2d}.strategy-steps{display:flex;flex-direction:column;gap:.35rem}.strategy-steps span{display:flex;align-items:center;gap:.4rem;padding:.35rem .45rem;border:1px solid #e5e5e5;border-radius:.4rem;background:#fff;font:600 .48rem var(--font-titulo);color:#4a4a4a}.strategy-steps i{font-style:normal;color:#218c8c;font-weight:700}.service-copy{position:relative;padding:1.35rem 1.25rem 1.5rem}.service-index{display:block;margin-bottom:.45rem;color:#176f6f;font:700 .68rem var(--font-titulo);letter-spacing:.08em}.service-copy h3{font-size:1.08rem;font-weight:750;margin-bottom:.45rem}.service-copy p{font-size:.88rem;line-height:1.7;color:#4a4a4a}
+@media(min-width:700px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.service-preview{height:205px}}
+@media(min-width:1000px){.services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.service-preview{height:190px}.services-heading{margin-bottom:3rem}}
+@media(max-width:360px){.service-preview{margin:.6rem .6rem 0;padding:.7rem;height:180px}.service-preview.presencia,.service-preview.estrategia{padding:.8rem}}
 </style>
-

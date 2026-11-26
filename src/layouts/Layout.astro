@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = "A&I Digital Studio | Diseño web para pequeños negocios en Panamá",
-  description = "Diseñamos páginas web y presencia digital para pequeños negocios y profesionales en Panamá. Cercanas, accesibles y sin sorpresas.",
+  description = "Diseñamos páginas web funcionales y presencia digital para pequeños negocios en Panamá, con cotización directa y acompañamiento cercano.",
 } = Astro.props;
 ---
 
@@ -38,6 +38,7 @@ const {
 
     <!-- Animación .reveal al hacer scroll -->
     <script>
+      document.documentElement.classList.add('js');
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {

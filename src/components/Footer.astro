@@ -1,180 +1,53 @@
 ---
-// src/components/Footer.astro
-import { nombre, lema, correo, instagram, instagramUrl, whatsappUrl, whatsappNumero } from '../data/site';
+import { nombre, lema, correo, instagram, instagramUrl, whatsappUrl, whatsappNumero, whatsappNota } from '../data/site';
 
+const year = new Date().getFullYear();
 const navLinks = [
-  { href: '#nosotras',  label: 'El estudio' },
+  { href: '#nosotras', label: 'El estudio' },
   { href: '#servicios', label: 'Servicios' },
-  { href: '#proceso',   label: 'Proceso' },
+  { href: '#proceso', label: 'Proceso' },
   { href: '#proyectos', label: 'Proyectos' },
-  { href: '#contacto',  label: 'Contacto' },
+  { href: '#preguntas', label: 'Preguntas frecuentes' },
+  { href: '#contacto', label: 'Contacto' },
 ];
 ---
+<footer id="site-footer" class="bg-blanco" aria-label="Pie de página">
+ <div id="footer-grid">
+  <section aria-label={nombre}>
+   <a href="/" class="font-titulo text-carbon" aria-label={`${nombre}, ir al inicio`}>
+    <span id="footer-brand-mark">A&amp;I</span> <span>Digital Studio</span>
+   </a>
+   <p id="footer-tagline" class="font-texto text-carbon">{lema}</p>
+  </section>
 
-<footer
-  class="bg-carbon"
-  style="padding-inline: 1.25rem;"
-  aria-label="Pie de página"
->
-  <!-- ── Cuerpo del footer ──────────────────────────────────────────────── -->
-  <div
-    class="container footer-grid"
-    style="padding-top: 3.5rem; padding-bottom: 2.5rem;"
-  >
+  <nav aria-label="Navegación de pie de página">
+   <h2 class="font-titulo text-carbon">Ir a</h2>
+   <ul>
+    {navLinks.map(({ href, label }) => <li><a class="font-texto text-carbon" href={href}>{label}</a></li>)}
+   </ul>
+  </nav>
 
-    <!-- Columna 1: Marca -->
-    <div>
-      <p
-        class="font-titulo text-blanco"
-        style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;"
-      >
-        <span style="color: var(--color-turquesa);">A&amp;I</span> Digital Studio
-      </p>
-      <p
-        class="font-texto text-blanco"
-        style="font-size: 0.875rem; opacity: 0.6; line-height: 1.65; max-width: 240px;"
-      >
-        {lema}
-      </p>
-    </div>
+  <section aria-labelledby="footer-contact-heading">
+   <h2 id="footer-contact-heading" class="font-titulo text-carbon">Contacto</h2>
+   <ul>
+    <li id="footer-whatsapp">
+     <a class="font-texto text-carbon" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`Escribir por WhatsApp al ${whatsappNumero}`}>
+      <span>{whatsappNumero}</span><span id="footer-whatsapp-note">{whatsappNota}</span>
+     </a>
+    </li>
+    <li><a class="font-texto text-carbon" href={`mailto:${correo}`} aria-label={`Enviar correo a ${correo}`}>{correo}</a></li>
+    <li><a class="font-texto text-carbon" href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visitar Instagram ${instagram}`}>{instagram}</a></li>
+   </ul>
+  </section>
+ </div>
 
-    <!-- Columna 2: Navegación -->
-    <nav aria-label="Navegación de pie de página">
-      <p class="footer-col-label">Ir a</p>
-      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.625rem;" role="list">
-        {navLinks.map(({ href, label }) => (
-          <li>
-            <a
-              href={href}
-              class="footer-link font-texto text-blanco"
-            >
-              {label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <!-- Columna 3: Contacto -->
-    <div>
-      <p class="footer-col-label">Contacto</p>
-      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;" role="list">
-        <li>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link font-texto text-blanco"
-            aria-label={`Escríbenos por WhatsApp al ${whatsappNumero}`}
-          >
-            WhatsApp · {whatsappNumero}
-          </a>
-          <span
-            class="font-titulo"
-            style="display: block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-turquesa); opacity: 0.9; margin-top: 0.1rem;"
-          >
-            Solo WhatsApp
-          </span>
-        </li>
-        <li>
-          <a
-            href={`mailto:${correo}`}
-            class="footer-link font-texto text-blanco"
-            aria-label={`Enviar correo a ${correo}`}
-          >
-            {correo}
-          </a>
-        </li>
-        <li>
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link font-texto text-blanco footer-ig-link"
-            aria-label={`Seguirnos en Instagram: ${instagram}`}
-          >
-            <svg
-              width="15" height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              style="flex-shrink: 0;"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-            </svg>
-            {instagram}
-          </a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- ── Banda inferior ─────────────────────────────────────────────────── -->
-  <div
-    class="container"
-    style="
-      padding-block: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-    "
-  >
-    <p
-      class="font-texto text-blanco"
-      style="font-size: 0.8rem; opacity: 0.4;"
-    >
-      {nombre} · {lema}
-    </p>
-  </div>
+ <div id="footer-bottom">
+  <p class="font-texto text-carbon">© {year} {nombre} · {lema}</p>
+ </div>
 </footer>
-
 <style>
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  @media (min-width: 640px) {
-    .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-    }
-  }
-
-  .footer-col-label {
-    font-family: var(--font-titulo);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #fff;
-    opacity: 0.4;
-    margin: 0 0 0.875rem 0;
-  }
-
-  .footer-link {
-    font-size: 0.9rem;
-    opacity: 0.65;
-    text-decoration: none;
-    transition: opacity 0.2s ease, color 0.2s ease;
-    display: inline-block;
-  }
-  .footer-link:hover,
-  .footer-link:focus-visible {
-    opacity: 1;
-    color: var(--color-turquesa);
-  }
-
-  /* Instagram: muestra ícono + texto en fila */
-  .footer-ig-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
+#site-footer{border-top:1px solid #dfe5e3;padding:2.2rem clamp(1rem,4vw,2rem) 0}#footer-grid{display:grid;grid-template-columns:1fr;gap:1.7rem;width:100%;max-width:1100px;margin-inline:auto;padding-bottom:1.6rem}#footer-grid section,#footer-grid nav{min-width:0}#footer-grid section>a:first-child{display:inline-flex;align-items:center;gap:.28rem;font-size:1rem;font-weight:800;letter-spacing:-.02em;text-decoration:none}#footer-brand-mark{color:#176f6f}#footer-tagline{max-width:260px;margin:.45rem 0 0;font-size:.88rem;line-height:1.55}#footer-grid h2{margin:0 0 .65rem;font-size:.72rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase}#footer-grid ul{display:flex;flex-direction:column;gap:.5rem;list-style:none;margin:0;padding:0}#footer-grid nav ul{gap:.5rem}#footer-grid li{min-width:0}#footer-grid li>a{display:inline-flex;align-items:baseline;gap:.45rem;min-height:1.6rem;font-size:.87rem;line-height:1.5;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.18em;transition:color .18s ease,text-decoration-color .18s ease}#footer-grid li>a:hover,#footer-grid li>a:focus-visible,#footer-grid section>a:first-child:hover{color:#176f6f;text-decoration-color:currentColor}#footer-whatsapp>a{flex-direction:column;align-items:flex-start;gap:.05rem}#footer-whatsapp-note{color:#176f6f;font-family:var(--font-titulo);font-size:.72rem;font-weight:700}#footer-bottom{width:100%;max-width:1100px;margin-inline:auto;border-top:1px solid #dfe5e3;padding:1rem 4.25rem 1rem 0;text-align:center}#footer-bottom p{margin:0;font-size:.78rem;line-height:1.55}
+@media(min-width:760px){#site-footer{padding-top:2.5rem}#footer-grid{grid-template-columns:1.2fr .8fr 1.25fr;gap:2rem;padding-bottom:2rem}#footer-bottom p{font-size:.8rem}}
+@media(min-width:1000px){#footer-grid{grid-template-columns:1.25fr .75fr 1.2fr;gap:3rem}}
+@media(max-width:380px){#site-footer{padding-inline:1rem}#footer-grid{gap:1.35rem}#footer-grid li>a{font-size:.83rem}#footer-bottom{padding-right:0}}
 </style>

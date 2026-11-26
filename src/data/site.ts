@@ -10,7 +10,8 @@ export const site = {
   // WhatsApp: contacto ÚNICAMENTE por WhatsApp (no llamadas)
   whatsapp:        "50767331951",
   whatsappNumero:  "+507 6733-1951",         // versión legible para mostrar en pantalla
-  whatsappMensaje: "Hola, me gustaría cotizar un proyecto web con A&I Digital Studio.",
+  whatsappNota:    "Solo WhatsApp",
+  whatsappMensaje: "Hola, me gustaría cotizar un proyecto de página web o presencia digital con A&I Digital Studio.",
 
   correo:       "aidigitalstudio.pa@gmail.com",
   instagram:    "@aidigitalstudio.pa",
@@ -20,8 +21,8 @@ export const site = {
   url: "https://aidigitalstudio.com",
 
   proyectos: [
-    { nombre: "VETECHI", estado: "En desarrollo", descripcion: "Plataforma web para clínica veterinaria con agenda de citas, perfil de mascotas y comunicación con el equipo médico.", url: "https://vetechi-landing.pages.dev/es/", tipo: "veterinaria" },
-    { nombre: "PMF Tours", estado: "Demostrativo", descripcion: "Sitio web para agencia de turismo en Panamá, pensado para mostrar destinos y facilitar reservas.", url: "https://pmftours.github.io/pmftours/", tipo: "turismo" },
+    { nombre: "VETECHI", estado: "En desarrollo", situacion: "Clínica veterinaria que necesitaba una presencia digital clara y profesional.", solucion: "Sitio web con información médica, agenda de citas, perfil de mascotas y contacto directo con el equipo.", url: "https://vetechi-landing.pages.dev/es/", tipo: "veterinaria" },
+    { nombre: "PMF Tours", estado: "Demostrativo", situacion: "Propuesta demostrativa para una agencia de turismo en Panamá.", solucion: "Vitrina visual de destinos y flujo pensado para facilitar consultas y reservas por WhatsApp.", url: "https://pmftours.github.io/pmftours/", tipo: "turismo" },
   ],
 };
 
@@ -37,4 +38,5 @@ export const {
   nombre,
   lema,
   whatsappNumero,
+  whatsappNota,
 } = site;
