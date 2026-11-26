@@ -18,7 +18,7 @@ export const site = {
   instagramUrl: "https://www.instagram.com/aidigitalstudio.pa/",
 
   // URL base del sitio (sin trailing slash) — actualizar con dominio real
-  url: "https://aidigitalstudio.com",
+  url: "https://aidigitalstudio-web.pages.dev",
 
   proyectos: [
     { nombre: "VETECHI", estado: "En desarrollo", situacion: "Clínica veterinaria que necesitaba una presencia digital clara y profesional.", solucion: "Sitio web con información médica, agenda de citas, perfil de mascotas y contacto directo con el equipo.", url: "https://vetechi-landing.pages.dev/es/", tipo: "veterinaria" },
