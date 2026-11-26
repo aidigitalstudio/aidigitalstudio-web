@@ -1,104 +1,21 @@
 ---
-// src/components/Hero.astro
 import { whatsappUrl } from '../data/site';
 ---
-
-<section
-  id="inicio"
-  class="bg-blanco section"
-  style="padding-top: 6rem; padding-bottom: 6rem; min-height: 90vh; display: flex; align-items: center;"
-  aria-labelledby="hero-heading"
->
-  <div
-    class="container"
-    style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;"
-  >
-    <!-- Texto principal -->
-    <div style="max-width: 640px;">
-      <span class="section-label reveal">Estudio de desarrollo web · Panamá</span>
-
-      <h1
-        id="hero-heading"
-        class="font-titulo text-carbon reveal delay-100"
-        style="font-size: clamp(2rem, 5.5vw, 3.25rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;"
-      >
-        Tu negocio merece verse<br />
-        <span style="color: var(--color-turquesa);">tan profesional</span><br />
-        como realmente es.
-      </h1>
-
-      <p
-        class="font-texto text-carbon-suave reveal delay-200"
-        style="font-size: 1.125rem; line-height: 1.75; margin-bottom: 2.5rem; max-width: 520px;"
-      >
-        Diseñamos páginas web y presencia digital para pequeños negocios
-        en Panamá. Sin tecnicismos, sin sorpresas, con resultados reales.
-      </p>
-
-      <div
-        class="reveal delay-300"
-        style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;"
-      >
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-naranja"
-          aria-label="Solicitar cotización por WhatsApp"
-        >
-          <!-- Ícono WhatsApp -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.112.546 4.1 1.5 5.832L0 24l6.336-1.46A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.014-1.376l-.359-.214-3.754.865.898-3.646-.234-.374A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/>
-          </svg>
-          Solicitar cotización
-        </a>
-
-        <a
-          href="#nosotras"
-          class="btn btn-outline"
-          aria-label="Conocer más sobre nosotras"
-        >
-          Conócenos
-        </a>
-      </div>
-    </div>
-
-    <!-- Elemento decorativo (lado derecho en desktop) -->
-    <div
-      class="reveal delay-200"
-      aria-hidden="true"
-      style="display: none;"
-    >
-      <!-- Espacio para ilustración o foto de equipo -->
-    </div>
+<section id="inicio" class="hero bg-blanco" aria-labelledby="hero-heading">
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <span class="section-label reveal">Diseño web y presencia digital · Panamá</span>
+   <h1 id="hero-heading" class="font-titulo text-carbon reveal delay-100">Tu negocio merece una presencia digital <span>hecha para ti.</span></h1>
+   <p class="font-texto text-carbon-suave reveal delay-200">Creamos páginas web claras y atractivas para pequeños negocios y profesionales. Te acompañamos de cerca, sin tecnicismos.</p>
+   <div class="actions reveal delay-300"><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-naranja">Solicitar cotización <span aria-hidden="true">↗</span></a><a href="#proyectos" class="text-carbon more">Ver proyectos <span aria-hidden="true">↓</span></a></div>
   </div>
-
-  <!-- Acento decorativo de fondo -->
-  <div
-    aria-hidden="true"
-    style="
-      position: absolute;
-      top: 0; right: 0;
-      width: min(50vw, 500px);
-      height: 100%;
-      background: linear-gradient(135deg, rgba(43,191,191,0.07) 0%, rgba(43,191,191,0) 70%);
-      pointer-events: none;
-      z-index: 0;
-    "
-  ></div>
+  <div class="mock reveal delay-200" aria-label="Vista ilustrativa de una página web de negocio local">
+   <div class="browser"><i></i><i></i><i></i><span>A&amp;I Digital Studio</span></div>
+   <div class="mock-page"><div class="mock-nav"><b>A&amp;I</b><span>Inicio　 Servicios　 Contacto</span></div><div class="mock-content"><small>UNA PRESENCIA A TU MEDIDA</small><h2>Tu esencia,<br/><em>en línea.</em></h2><p>Una página que conecta con tus clientes.</p><div class="mock-button">Conversemos <span>→</span></div></div><div class="mock-art"><div class="art-circle"></div><div class="art-card">✦<br/><small>hecho con intención</small></div></div></div>
+  </div>
+ </div>
 </section>
-
 <style>
-  section { position: relative; overflow: hidden; }
-
-  @media (min-width: 900px) {
-    .container {
-      grid-template-columns: 1fr 1fr !important;
-    }
-    div[aria-hidden="true"] {
-      display: block !important;
-    }
-  }
+ .hero{padding:clamp(4rem,9vw,7rem) 1.25rem;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}.hero-copy{max-width:600px}.hero h1{font-size:clamp(2.35rem,6vw,4.2rem);font-weight:800;letter-spacing:-.045em;line-height:1.08;margin:1rem 0 1.3rem}.hero h1 span{color:#218c8c}.hero-copy>p{font-size:1.06rem;line-height:1.8;max-width:500px;margin-bottom:1.8rem}.actions{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap}.more{font-weight:700}.mock{max-width:540px;width:100%;justify-self:center;border:1px solid #e5e5e5;border-radius:1rem;overflow:hidden;padding:.75rem;background:#f7fbfa;box-shadow:0 24px 70px rgba(45,45,45,.09);transform:rotate(1deg)}.browser{height:1.8rem;display:flex;align-items:center;gap:.3rem;padding:0 .5rem}.browser i{width:.45rem;height:.45rem;border-radius:50%;background:#b9dede}.browser span{margin:auto;font:600 .65rem var(--font-titulo);color:#4a4a4a}.mock-page{background:white;border-radius:.5rem;min-height:320px;padding:1rem;position:relative;overflow:hidden}.mock-nav{display:flex;justify-content:space-between;align-items:center;font:600 .62rem var(--font-titulo);color:#4a4a4a}.mock-nav b{font-size:.85rem;color:#218c8c}.mock-content{position:relative;z-index:2;padding:2.5rem 0 1rem .6rem;max-width:65%}.mock-content small{font:700 .52rem var(--font-titulo);letter-spacing:.08em;color:#218c8c}.mock-content h2{font:800 clamp(1.75rem,4vw,2.7rem)/1.03 var(--font-titulo);margin:.8rem 0}.mock-content em{font-style:normal;color:#2bbfbf}.mock-content p{font-size:.7rem;color:#4a4a4a}.mock-button{display:inline-flex;gap:.5rem;margin-top:1rem;padding:.55rem .8rem;background:#f76e3a;color:white;border-radius:2rem;font:600 .62rem var(--font-titulo)}.mock-art{position:absolute;right:-.5rem;bottom:-1rem;width:48%;height:75%;background:#e5f5f2;border-radius:50% 0 0 0}.art-circle{position:absolute;right:13%;top:17%;width:65%;aspect-ratio:1;border-radius:50%;background:#b6e5dc}.art-card{position:absolute;right:5%;bottom:14%;padding:.8rem;border-radius:.5rem;background:#fff;box-shadow:0 8px 24px #2d2d2d18;color:#218c8c;font-size:1.4rem}.art-card small{font:600 .5rem var(--font-titulo);color:#4a4a4a}
+ @media(min-width:850px){.hero-grid{grid-template-columns:1fr 1fr;gap:3.5rem}.mock{justify-self:end}.mock-page{min-height:370px}}
 </style>
-

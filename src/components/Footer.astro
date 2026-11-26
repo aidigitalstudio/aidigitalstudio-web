@@ -1,58 +1,52 @@
 ---
 // src/components/Footer.astro
-import { nombre, lema, correo, instagram, instagramUrl, whatsappUrl } from '../data/site';
+import { nombre, lema, correo, instagram, instagramUrl, whatsappUrl, whatsappNumero } from '../data/site';
 
-const year = new Date().getFullYear();
+const navLinks = [
+  { href: '#nosotras',  label: 'El estudio' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proceso',   label: 'Proceso' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#contacto',  label: 'Contacto' },
+];
 ---
 
 <footer
   class="bg-carbon"
-  style="padding-block: 3rem; padding-inline: 1.25rem;"
+  style="padding-inline: 1.25rem;"
   aria-label="Pie de página"
 >
+  <!-- ── Cuerpo del footer ──────────────────────────────────────────────── -->
   <div
-    class="container"
-    style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;"
+    class="container footer-grid"
+    style="padding-top: 3.5rem; padding-bottom: 2.5rem;"
   >
+
     <!-- Columna 1: Marca -->
     <div>
       <p
         class="font-titulo text-blanco"
-        style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem;"
+        style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;"
       >
         <span style="color: var(--color-turquesa);">A&amp;I</span> Digital Studio
       </p>
       <p
         class="font-texto text-blanco"
-        style="font-size: 0.875rem; opacity: 0.65; line-height: 1.6; max-width: 280px;"
+        style="font-size: 0.875rem; opacity: 0.6; line-height: 1.65; max-width: 240px;"
       >
         {lema}
       </p>
     </div>
 
-    <!-- Columna 2: Navegación rápida -->
+    <!-- Columna 2: Navegación -->
     <nav aria-label="Navegación de pie de página">
-      <p
-        class="font-titulo text-blanco"
-        style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.5;"
-      >
-        Ir a
-      </p>
+      <p class="footer-col-label">Ir a</p>
       <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.625rem;" role="list">
-        {[
-          { href: '#nosotras',  label: 'Nosotras' },
-          { href: '#servicios', label: 'Servicios' },
-          { href: '#proceso',   label: 'Proceso' },
-          { href: '#proyectos', label: 'Proyectos' },
-          { href: '#contacto',  label: 'Contacto' },
-        ].map(({ href, label }) => (
+        {navLinks.map(({ href, label }) => (
           <li>
             <a
               href={href}
-              class="font-texto text-blanco"
-              style="font-size: 0.9rem; opacity: 0.7; text-decoration: none; transition: opacity 0.2s ease;"
-              onmouseover="this.style.opacity='1'; this.style.color='var(--color-turquesa)'"
-              onmouseout="this.style.opacity='0.7'; this.style.color=''"
+              class="footer-link font-texto text-blanco"
             >
               {label}
             </a>
@@ -61,37 +55,32 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    <!-- Columna 3: Contacto rápido -->
+    <!-- Columna 3: Contacto -->
     <div>
-      <p
-        class="font-titulo text-blanco"
-        style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.5;"
-      >
-        Contacto
-      </p>
+      <p class="footer-col-label">Contacto</p>
       <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;" role="list">
         <li>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="font-texto text-blanco"
-            style="font-size: 0.9rem; opacity: 0.7; text-decoration: none;"
-            aria-label="Escríbenos por WhatsApp"
-            onmouseover="this.style.opacity='1'; this.style.color='var(--color-turquesa)'"
-            onmouseout="this.style.opacity='0.7'; this.style.color=''"
+            class="footer-link font-texto text-blanco"
+            aria-label={`Escríbenos por WhatsApp al ${whatsappNumero}`}
           >
-            WhatsApp
+            WhatsApp · {whatsappNumero}
           </a>
+          <span
+            class="font-titulo"
+            style="display: block; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-turquesa); opacity: 0.9; margin-top: 0.1rem;"
+          >
+            Solo WhatsApp
+          </span>
         </li>
         <li>
           <a
             href={`mailto:${correo}`}
-            class="font-texto text-blanco"
-            style="font-size: 0.9rem; opacity: 0.7; text-decoration: none;"
+            class="footer-link font-texto text-blanco"
             aria-label={`Enviar correo a ${correo}`}
-            onmouseover="this.style.opacity='1'; this.style.color='var(--color-turquesa)'"
-            onmouseout="this.style.opacity='0.7'; this.style.color=''"
           >
             {correo}
           </a>
@@ -101,40 +90,91 @@ const year = new Date().getFullYear();
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="font-texto text-blanco"
-            style="font-size: 0.9rem; opacity: 0.7; text-decoration: none;"
+            class="footer-link font-texto text-blanco footer-ig-link"
             aria-label={`Seguirnos en Instagram: ${instagram}`}
-            onmouseover="this.style.opacity='1'; this.style.color='var(--color-turquesa)'"
-            onmouseout="this.style.opacity='0.7'; this.style.color=''"
           >
+            <svg
+              width="15" height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              style="flex-shrink: 0;"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
             {instagram}
           </a>
         </li>
       </ul>
     </div>
+
   </div>
 
-  <!-- Divisor -->
+  <!-- ── Banda inferior ─────────────────────────────────────────────────── -->
   <div
     class="container"
-    style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);"
+    style="
+      padding-block: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    "
   >
     <p
       class="font-texto text-blanco"
-      style="font-size: 0.8125rem; opacity: 0.45; text-align: center;"
+      style="font-size: 0.8rem; opacity: 0.4;"
     >
-      © {year} {nombre} · {lema}
+      {nombre} · {lema}
     </p>
   </div>
 </footer>
 
 <style>
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
   @media (min-width: 640px) {
-    .container > div:first-child,
-    footer > div.container {
-      display: grid;
+    .footer-grid {
       grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
     }
   }
-</style>
 
+  .footer-col-label {
+    font-family: var(--font-titulo);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.4;
+    margin: 0 0 0.875rem 0;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+    opacity: 0.65;
+    text-decoration: none;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    display: inline-block;
+  }
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    opacity: 1;
+    color: var(--color-turquesa);
+  }
+
+  /* Instagram: muestra ícono + texto en fila */
+  .footer-ig-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+</style>

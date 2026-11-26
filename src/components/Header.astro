@@ -3,7 +3,7 @@
 import { whatsappUrl, nombre } from '../data/site';
 
 const nav = [
-  { href: '#nosotras',  label: 'Nosotras' },
+  { href: '#nosotras',  label: 'El estudio' },
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso',   label: 'Proceso' },
   { href: '#proyectos', label: 'Proyectos' },
@@ -12,29 +12,40 @@ const nav = [
 ---
 
 <header
-  class="bg-blanco sticky top-0 z-50 border-b border-gris-borde"
-  style="backdrop-filter: blur(8px); background-color: rgba(255,255,255,0.95);"
+  class="bg-blanco sticky top-0 z-50"
+  style="
+    border-bottom: 1px solid var(--color-gris-borde);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255,255,255,0.96);
+  "
 >
-  <div class="container" style="padding-inline: 1.25rem; margin-inline: auto; max-width: 1100px;">
+  <div
+    class="container"
+    style="padding-inline: 1.25rem; margin-inline: auto; max-width: 1100px;"
+  >
     <nav
-      class="flex items-center justify-between"
-      style="padding-block: 1rem;"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 1rem;
+      "
       aria-label="Navegación principal"
     >
-      <!-- Logo / nombre -->
+      <!-- ── Logo ─────────────────────────────────────────────────────── -->
       <a
         href="/"
         class="font-titulo text-carbon"
-        style="font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; text-decoration: none;"
+        style="font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; text-decoration: none; display: flex; align-items: center; gap: 0.1em;"
         aria-label={`${nombre} — ir al inicio`}
       >
         <span style="color: var(--color-turquesa);">A&amp;I</span>
-        <span style="margin-left: 0.3em;">Digital Studio</span>
+        <span style="margin-left: 0.3em; color: var(--color-carbon);">Digital Studio</span>
       </a>
 
-      <!-- Menú escritorio -->
+      <!-- ── Menú escritorio ───────────────────────────────────────────── -->
       <ul
-        class="hidden md:flex items-center gap-6 font-texto"
+        class="desktop-nav"
         style="list-style: none; margin: 0; padding: 0; font-size: 0.9375rem;"
         role="list"
       >
@@ -42,7 +53,7 @@ const nav = [
           <li>
             <a
               href={href}
-              class="text-carbon-suave"
+              class="font-texto text-carbon-suave"
               style="text-decoration: none; transition: color 0.2s ease; font-weight: 500;"
               onmouseover="this.style.color='var(--color-turquesa)'"
               onmouseout="this.style.color=''"
@@ -53,24 +64,23 @@ const nav = [
         ))}
       </ul>
 
-      <!-- CTA + hamburguesa -->
-      <div class="flex items-center gap-3">
+      <!-- ── CTA + hamburguesa ─────────────────────────────────────────── -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-naranja hidden sm:inline-flex"
+          class="btn btn-naranja cta-desktop"
           style="padding: 0.6rem 1.25rem; font-size: 0.875rem;"
           aria-label="Cotizar proyecto por WhatsApp"
         >
           Cotizar
         </a>
 
-        <!-- Botón hamburguesa (mobile) -->
         <button
           id="menu-toggle"
-          class="md:hidden text-carbon"
-          style="background: none; border: none; cursor: pointer; padding: 0.5rem;"
+          class="hamburger"
+          style="background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--color-carbon);"
           aria-label="Abrir menú de navegación"
           aria-expanded="false"
           aria-controls="mobile-menu"
@@ -84,11 +94,10 @@ const nav = [
       </div>
     </nav>
 
-    <!-- Menú mobile desplegable -->
+    <!-- ── Menú mobile ───────────────────────────────────────────────── -->
     <div
       id="mobile-menu"
-      class="md:hidden bg-blanco border-t border-gris-borde"
-      style="display: none; padding-block: 1rem;"
+      style="display: none; padding-bottom: 1.25rem; border-top: 1px solid var(--color-gris-borde);"
       aria-hidden="true"
     >
       <ul style="list-style: none; margin: 0; padding: 0;" role="list">
@@ -96,7 +105,7 @@ const nav = [
           <li>
             <a
               href={href}
-              class="text-carbon font-texto"
+              class="font-texto text-carbon"
               style="display: block; padding: 0.75rem 0; font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--color-gris-borde);"
             >
               {label}
@@ -110,6 +119,7 @@ const nav = [
             rel="noopener noreferrer"
             class="btn btn-naranja"
             style="width: 100%; justify-content: center;"
+            aria-label="Cotizar proyecto por WhatsApp"
           >
             Cotizar por WhatsApp
           </a>
@@ -119,6 +129,22 @@ const nav = [
   </div>
 </header>
 
+<style>
+  /* Escritorio: lista horizontal con gaps */
+  .desktop-nav {
+    display: none;
+    gap: 2rem;
+  }
+  .cta-desktop  { display: none; }
+  .hamburger    { display: flex; }
+
+  @media (min-width: 768px) {
+    .desktop-nav  { display: flex; }
+    .cta-desktop  { display: inline-flex; }
+    .hamburger    { display: none; }
+  }
+</style>
+
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu   = document.getElementById('mobile-menu');
@@ -127,10 +153,9 @@ const nav = [
     const isOpen = menu?.style.display === 'block';
     if (menu) menu.style.display = isOpen ? 'none' : 'block';
     toggle.setAttribute('aria-expanded', String(!isOpen));
-    if (menu) menu.setAttribute('aria-hidden', String(isOpen));
+    menu?.setAttribute('aria-hidden', String(isOpen));
   });
 
-  // Cierra menú al hacer clic en enlace interno
   menu?.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', () => {
       if (menu) menu.style.display = 'none';
@@ -139,4 +164,3 @@ const nav = [
     });
   });
 </script>
-

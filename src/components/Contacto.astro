@@ -1,6 +1,12 @@
 ---
 // src/components/Contacto.astro
-import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
+import {
+  whatsappUrl,
+  whatsappNumero,
+  correo,
+  instagram,
+  instagramUrl,
+} from "../data/site";
 ---
 
 <section
@@ -9,17 +15,11 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
   aria-labelledby="contacto-heading"
 >
   <div class="container">
-    <div
-      style="display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: start;"
-      class="contacto-grid"
-    >
-      <!-- Texto -->
+    <div class="contacto-grid">
+      <!-- ── Columna izquierda: texto ──────────────────────────────────── -->
       <div>
         <span class="section-label reveal">Contáctanos</span>
-        <h2
-          id="contacto-heading"
-          class="section-title reveal delay-100"
-        >
+        <h2 id="contacto-heading" class="section-title reveal delay-100">
           ¿Lista/o para empezar?
         </h2>
         <p
@@ -32,9 +32,9 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
 
         <!-- Canales de contacto -->
         <ul
-          style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.25rem;"
-          role="list"
+          style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.375rem;"
           class="reveal delay-300"
+          role="list"
         >
           <!-- WhatsApp -->
           <li>
@@ -44,49 +44,77 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
               rel="noopener noreferrer"
               class="btn btn-naranja"
               style="width: fit-content;"
-              aria-label="Escríbenos por WhatsApp"
+              aria-label={`Escribirnos por WhatsApp al ${whatsappNumero}`}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.112.546 4.1 1.5 5.832L0 24l6.336-1.46A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.014-1.376l-.359-.214-3.754.865.898-3.646-.234-.374A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/>
+              <!-- Ícono WhatsApp -->
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.112.546 4.1 1.5 5.832L0 24l6.336-1.46A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.014-1.376l-.359-.214-3.754.865.898-3.646-.234-.374A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z" />
               </svg>
               Escribirnos por WhatsApp
             </a>
+
+            <!-- Número + nota "solo WhatsApp" -->
+            <p
+              class="font-texto text-carbon-suave"
+              style="font-size: 0.8125rem; margin-top: 0.5rem; padding-left: 0.25rem;"
+            >
+              {whatsappNumero}
+              <span
+                style="
+                  display: inline-block;
+                  margin-left: 0.5rem;
+                  padding: 0.1rem 0.5rem;
+                  border-radius: 9999px;
+                  font-size: 0.7rem;
+                  font-weight: 700;
+                  letter-spacing: 0.06em;
+                  text-transform: uppercase;
+                  background-color: rgba(43,191,191,0.1);
+                  color: var(--color-turquesa-oscuro);
+                  font-family: var(--font-titulo);
+                "
+              >
+                Solo WhatsApp
+              </span>
+            </p>
           </li>
 
           <!-- Correo -->
           <li>
             <a
               href={`mailto:${correo}`}
-              class="font-texto text-carbon"
-              style="
-                display: inline-flex;
-                align-items: center;
-                gap: 0.75rem;
-                font-size: 0.9375rem;
-                text-decoration: none;
-                transition: color 0.2s ease;
-              "
+              class="contacto-link font-texto text-carbon"
               aria-label={`Enviarnos un correo a ${correo}`}
-              onmouseover="this.style.color='var(--color-turquesa)'"
-              onmouseout="this.style.color=''"
             >
               <span
-                style="
-                  width: 40px; height: 40px;
-                  background-color: rgba(43,191,191,0.1);
-                  border-radius: 50%;
-                  display: flex; align-items: center; justify-content: center;
-                  flex-shrink: 0;
-                  color: var(--color-turquesa);
-                "
+                class="contacto-icono"
+                style="background-color: rgba(43,191,191,0.1); color: var(--color-turquesa);"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
                 </svg>
               </span>
-              {correo}
+              <span style="font-size: 0.9375rem; font-weight: 500;">
+                {correo}
+              </span>
             </a>
           </li>
 
@@ -96,46 +124,42 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
               href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="font-texto text-carbon"
-              style="
-                display: inline-flex;
-                align-items: center;
-                gap: 0.75rem;
-                font-size: 0.9375rem;
-                text-decoration: none;
-                transition: color 0.2s ease;
-              "
+              class="contacto-link font-texto text-carbon"
               aria-label={`Visitarnos en Instagram: ${instagram}`}
-              onmouseover="this.style.color='var(--color-turquesa)'"
-              onmouseout="this.style.color=''"
             >
               <span
-                style="
-                  width: 40px; height: 40px;
-                  background-color: rgba(43,191,191,0.1);
-                  border-radius: 50%;
-                  display: flex; align-items: center; justify-content: center;
-                  flex-shrink: 0;
-                  color: var(--color-turquesa);
-                "
+                class="contacto-icono"
+                style="background-color: rgba(43,191,191,0.1); color: var(--color-turquesa);"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               </span>
-              {instagram}
+              <span style="font-size: 0.9375rem; font-weight: 500;">
+                {instagram}
+              </span>
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Bloque visual de refuerzo -->
+      <!-- ── Columna derecha: tarjeta de respuesta ──────────────────────── -->
       <div class="reveal delay-200">
         <div
           style="
-            background: linear-gradient(135deg, var(--color-gris-claro) 0%, #fff 100%);
+            background: var(--color-gris-claro);
             border: 1px solid var(--color-gris-borde);
             border-radius: 1.25rem;
             padding: 2.5rem;
@@ -144,7 +168,7 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
         >
           <div
             style="
-              width: 80px; height: 80px;
+              width: 72px; height: 72px;
               background: linear-gradient(135deg, var(--color-turquesa) 0%, var(--color-turquesa-oscuro) 100%);
               border-radius: 50%;
               margin: 0 auto 1.5rem;
@@ -152,9 +176,19 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
               align-items: center;
               justify-content: center;
             "
+            aria-hidden="true"
           >
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            <svg
+              width="34"
+              height="34"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
             </svg>
           </div>
 
@@ -166,11 +200,45 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
           </h3>
           <p
             class="font-texto text-carbon-suave"
-            style="font-size: 0.9375rem; line-height: 1.7;"
+            style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1.5rem;"
           >
-            Generalmente respondemos en menos de 24 horas.
-            Tu proyecto no puede esperar.
+            Cuéntame qué tienes en mente y coordinamos los próximos pasos por WhatsApp.
           </p>
+
+          <!-- Separador -->
+          <div
+            style="height: 1px; background: var(--color-gris-borde); margin-bottom: 1.5rem;"
+            aria-hidden="true"
+          ></div>
+
+          <p
+            class="font-titulo text-carbon"
+            style="font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; opacity: 0.6;"
+          >
+            Nuestros canales
+          </p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <span
+              class="font-titulo"
+              style="font-size: 0.8125rem; font-weight: 600; color: var(--color-turquesa);"
+            >
+              WhatsApp
+            </span>
+            <span style="color: var(--color-gris-borde);">·</span>
+            <span
+              class="font-titulo"
+              style="font-size: 0.8125rem; font-weight: 600; color: var(--color-turquesa);"
+            >
+              Correo
+            </span>
+            <span style="color: var(--color-gris-borde);">·</span>
+            <span
+              class="font-titulo"
+              style="font-size: 0.8125rem; font-weight: 600; color: var(--color-turquesa);"
+            >
+              Instagram
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -178,10 +246,37 @@ import { whatsappUrl, correo, instagram, instagramUrl } from '../data/site';
 </section>
 
 <style>
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
   @media (min-width: 768px) {
     .contacto-grid {
-      grid-template-columns: 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr;
     }
   }
-</style>
 
+  .contacto-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .contacto-link:hover,
+  .contacto-link:focus-visible {
+    color: var(--color-turquesa);
+  }
+
+  .contacto-icono {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+</style>

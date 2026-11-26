@@ -35,14 +35,14 @@ import { whatsappUrl } from '../data/site';
     height: 56px;
     border-radius: 50%;
 
-    background-color: #25D366;
+    background-color: var(--color-naranja);
     color: #fff;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 4px 20px rgba(247, 110, 58, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
   }
@@ -50,7 +50,7 @@ import { whatsappUrl } from '../data/site';
   .wa-btn:hover,
   .wa-btn:focus-visible {
     transform: scale(1.08);
-    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+    box-shadow: 0 6px 28px rgba(247, 110, 58, 0.4);
   }
 
   .wa-btn:active {
@@ -72,7 +72,7 @@ import { whatsappUrl } from '../data/site';
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background-color: #25D366;
+    background-color: var(--color-naranja);
     animation: wa-pulse 2.5s ease-out 2s infinite;
     z-index: -1;
   }
