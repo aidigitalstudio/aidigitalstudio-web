@@ -1,0 +1,220 @@
+@import "@fontsource-variable/montserrat";
+@import "@fontsource-variable/open-sans";
+@import "tailwindcss";
+
+/* =========================================================
+   TOKENS DE COLOR — A&I Digital Studio
+   ========================================================= */
+@theme {
+  --color-turquesa:  #2BBFBF;
+  --color-turquesa-oscuro: #1FA8A8;
+  --color-naranja:   #F76E3A;
+  --color-naranja-oscuro: #E55A26;
+  --color-carbon:    #2D2D2D;
+  --color-carbon-suave: #4A4A4A;
+  --color-blanco:    #FFFFFF;
+  --color-gris-claro:#F7F7F7;
+  --color-gris-borde:#E5E5E5;
+
+  /* Tipografías */
+  --font-titulo:  "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-texto:   "Open Sans Variable",  ui-sans-serif, system-ui, sans-serif;
+}
+
+/* =========================================================
+   CLASES SEMÁNTICAS DE LA MARCA
+   ========================================================= */
+@layer utilities {
+  .bg-turquesa       { background-color: var(--color-turquesa); }
+  .bg-turquesa-oscuro{ background-color: var(--color-turquesa-oscuro); }
+  .bg-naranja        { background-color: var(--color-naranja); }
+  .bg-naranja-oscuro { background-color: var(--color-naranja-oscuro); }
+  .bg-carbon         { background-color: var(--color-carbon); }
+  .bg-blanco         { background-color: var(--color-blanco); }
+  .bg-gris-claro     { background-color: var(--color-gris-claro); }
+
+  .text-turquesa     { color: var(--color-turquesa); }
+  .text-naranja      { color: var(--color-naranja); }
+  .text-carbon       { color: var(--color-carbon); }
+  .text-carbon-suave { color: var(--color-carbon-suave); }
+  .text-blanco       { color: var(--color-blanco); }
+
+  .border-turquesa   { border-color: var(--color-turquesa); }
+  .border-gris-borde { border-color: var(--color-gris-borde); }
+
+  .font-titulo       { font-family: var(--font-titulo); }
+  .font-texto        { font-family: var(--font-texto); }
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-texto);
+  color: var(--color-carbon);
+  background-color: var(--color-blanco);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titulo);
+  line-height: 1.2;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+/* =========================================================
+   ANIMACIÓN .reveal
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay helpers */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+
+/* =========================================================
+   FOCUS VISIBLE — Accesibilidad
+   ========================================================= */
+:focus-visible {
+  outline: 3px solid var(--color-turquesa);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   BOTONES BASE
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn:active  { transform: scale(0.97); }
+
+.btn-naranja {
+  background-color: var(--color-naranja);
+  color: var(--color-blanco);
+}
+.btn-naranja:hover, .btn-naranja:focus-visible {
+  background-color: var(--color-naranja-oscuro);
+  box-shadow: 0 4px 16px rgba(247,110,58,0.35);
+}
+
+.btn-turquesa {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+}
+.btn-turquesa:hover, .btn-turquesa:focus-visible {
+  background-color: var(--color-turquesa-oscuro);
+  box-shadow: 0 4px 16px rgba(43,191,191,0.35);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-turquesa);
+  border: 2px solid var(--color-turquesa);
+}
+.btn-outline:hover, .btn-outline:focus-visible {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+}
+
+/* =========================================================
+   SECCIÓN BASE
+   ========================================================= */
+.section {
+  padding-block: 5rem;
+  padding-inline: 1.25rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.section-label {
+  font-family: var(--font-titulo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-turquesa);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-titulo);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-carbon);
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-texto);
+  font-size: 1.0625rem;
+  color: var(--color-carbon-suave);
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+.card {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-gris-borde);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 30px rgba(43,191,191,0.12);
+  transform: translateY(-3px);
+}
+

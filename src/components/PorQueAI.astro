@@ -1,0 +1,119 @@
+---
+// src/components/PorQueAI.astro
+
+const razones = [
+  {
+    icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`,
+    titulo: 'Trato cercano y directo',
+    descripcion: 'No somos una agencia enorme donde eres un número. Hablamos contigo de frente, resolvemos tus dudas y te acompañamos en todo el proceso.',
+  },
+  {
+    icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>`,
+    titulo: 'Precios accesibles',
+    descripcion: 'Creemos que tener una buena presencia digital no debería costar una fortuna. Ofrecemos soluciones reales a un precio justo para pequeños negocios.',
+  },
+  {
+    icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
+    titulo: 'Sin sorpresas',
+    descripcion: 'Te decimos exactamente qué incluye tu proyecto, cuánto cuesta y cuándo estará listo. Nada oculto, nada de cobros inesperados.',
+  },
+];
+---
+
+<section
+  id="por-que-ai"
+  class="section bg-turquesa"
+  aria-labelledby="porquea-heading"
+>
+  <div class="container">
+    <header style="margin-bottom: 3.5rem; text-align: center;">
+      <span
+        class="font-titulo text-blanco"
+        style="
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          margin-bottom: 0.75rem;
+          display: block;
+          opacity: 0.8;
+        "
+      >
+        ¿Por qué elegirnos?
+      </span>
+      <h2
+        id="porquea-heading"
+        class="font-titulo text-blanco reveal delay-100"
+        style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1.25rem;"
+      >
+        Por qué trabajar con A&amp;I
+      </h2>
+      <p
+        class="font-texto text-blanco reveal delay-200"
+        style="font-size: 1.0625rem; opacity: 0.9; max-width: 560px; margin-inline: auto; line-height: 1.7;"
+      >
+        No solo hacemos páginas web. Construimos relaciones y soluciones que
+        realmente funcionan para tu negocio.
+      </p>
+    </header>
+
+    <div
+      style="display: grid; grid-template-columns: 1fr; gap: 1.75rem;"
+      class="razones-grid"
+    >
+      {razones.map((r, i) => (
+        <article
+          class={`reveal delay-${(i + 1) * 100}`}
+          style="
+            background-color: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(4px);
+          "
+          aria-label={r.titulo}
+        >
+          <div
+            style="
+              width: 56px; height: 56px;
+              background-color: rgba(255,255,255,0.2);
+              border-radius: 0.75rem;
+              display: flex; align-items: center; justify-content: center;
+              margin-bottom: 1.25rem;
+              color: var(--color-blanco);
+            "
+            set:html={r.icono}
+          />
+
+          <h3
+            class="font-titulo text-blanco"
+            style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.75rem;"
+          >
+            {r.titulo}
+          </h3>
+
+          <p
+            class="font-texto text-blanco"
+            style="font-size: 0.9375rem; line-height: 1.7; opacity: 0.9;"
+          >
+            {r.descripcion}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 640px) {
+    .razones-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (min-width: 900px) {
+    .razones-grid {
+      grid-template-columns: 1fr 1fr 1fr !important;
+    }
+  }
+</style>
+

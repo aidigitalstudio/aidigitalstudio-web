@@ -1,0 +1,136 @@
+---
+// src/components/Proyectos.astro
+
+const proyectos = [
+  {
+    nombre: 'PMF Tours',
+    tipo: 'Demostrativo',
+    descripcion: 'Sitio web para agencia de turismo en Panamá. Diseño orientado a generar reservas y mostrar los destinos de forma atractiva.',
+    url: '#', // ← reemplazar con URL real cuando esté disponible
+    estado: 'demo',
+    etiqueta: 'Demostrativo',
+  },
+  {
+    nombre: 'VETECHI',
+    tipo: 'En desarrollo',
+    descripcion: 'Plataforma web para clínica veterinaria. Agenda de citas, perfil de mascotas y comunicación directa con el equipo médico.',
+    url: '#', // ← reemplazar con URL real cuando esté disponible
+    estado: 'desarrollo',
+    etiqueta: 'En desarrollo',
+  },
+];
+---
+
+<section
+  id="proyectos"
+  class="section bg-blanco"
+  aria-labelledby="proyectos-heading"
+>
+  <div class="container">
+    <header style="margin-bottom: 3.5rem;">
+      <span class="section-label reveal">Proyectos</span>
+      <h2
+        id="proyectos-heading"
+        class="section-title reveal delay-100"
+      >
+        Nuestro trabajo en acción
+      </h2>
+      <p class="section-subtitle reveal delay-200">
+        Cada proyecto es una historia diferente. Aquí te mostramos algunas
+        de las páginas que hemos construido con cariño.
+      </p>
+    </header>
+
+    <div
+      style="display: grid; grid-template-columns: 1fr; gap: 2rem;"
+      class="proyectos-grid"
+    >
+      {proyectos.map((p, i) => (
+        <article
+          class={`card reveal delay-${(i + 1) * 100}`}
+          style="padding: 0; overflow: hidden;"
+          aria-label={`Proyecto: ${p.nombre}`}
+        >
+          <!-- Imagen placeholder -->
+          <div
+            style="
+              width: 100%;
+              aspect-ratio: 16/9;
+              background: linear-gradient(135deg, var(--color-gris-claro) 0%, var(--color-gris-borde) 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-bottom: 1px solid var(--color-gris-borde);
+            "
+          >
+            <span
+              class="font-titulo text-carbon-suave"
+              style="font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; opacity: 0.6;"
+              aria-label={`Espacio reservado para imagen del proyecto ${p.nombre}`}
+            >
+              [IMAGEN {p.nombre}]
+            </span>
+          </div>
+
+          <!-- Contenido -->
+          <div style="padding: 1.75rem;">
+            <!-- Etiqueta de estado -->
+            <span
+              style={`
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                background-color: ${p.estado === 'demo' ? 'rgba(43,191,191,0.12)' : 'rgba(247,110,58,0.12)'};
+                color: ${p.estado === 'demo' ? 'var(--color-turquesa-oscuro)' : 'var(--color-naranja-oscuro)'};
+              `}
+            >
+              {p.etiqueta}
+            </span>
+
+            <h3
+              class="font-titulo text-carbon"
+              style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.625rem;"
+            >
+              {p.nombre}
+            </h3>
+
+            <p
+              class="font-texto text-carbon-suave"
+              style="font-size: 0.9375rem; line-height: 1.65; margin-bottom: 1.5rem;"
+            >
+              {p.descripcion}
+            </p>
+
+            <a
+              href={p.url}
+              class="btn btn-outline"
+              style="font-size: 0.875rem; padding: 0.6rem 1.25rem;"
+              aria-label={`Ver proyecto ${p.nombre}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 700px) {
+    .proyectos-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
+

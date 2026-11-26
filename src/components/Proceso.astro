@@ -1,0 +1,126 @@
+---
+// src/components/Proceso.astro
+
+const pasos = [
+  {
+    numero: '01',
+    titulo: 'Conversamos',
+    descripcion: 'Nos cuentas de tu negocio, qué necesitas y qué esperas. Sin formularios interminables, solo una charla directa.',
+  },
+  {
+    numero: '02',
+    titulo: 'Diseñamos',
+    descripcion: 'Creamos una propuesta visual pensada para ti. Colores, estructura y contenido que representa tu marca.',
+  },
+  {
+    numero: '03',
+    titulo: 'Revisas y apruebas',
+    descripcion: 'Tú das el visto bueno. Hacemos los ajustes necesarios hasta que estés cien por ciento contento/a con el resultado.',
+  },
+  {
+    numero: '04',
+    titulo: 'Publicamos',
+    descripcion: '¡Tu negocio ya está en línea! Te entregamos todo funcionando y te explicamos cómo usarlo.',
+  },
+];
+---
+
+<section
+  id="proceso"
+  class="section bg-gris-claro"
+  aria-labelledby="proceso-heading"
+>
+  <div class="container">
+    <header style="margin-bottom: 3.5rem;">
+      <span class="section-label reveal">¿Cómo trabajamos?</span>
+      <h2
+        id="proceso-heading"
+        class="section-title reveal delay-100"
+      >
+        Simple, claro y sin sorpresas
+      </h2>
+      <p class="section-subtitle reveal delay-200">
+        Cuatro pasos para que tu página esté lista. Sin complicaciones y
+        con comunicación constante en todo momento.
+      </p>
+    </header>
+
+    <!-- Línea de tiempo de pasos -->
+    <ol
+      style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 2rem;"
+      class="proceso-grid"
+      role="list"
+    >
+      {pasos.map((paso, i) => (
+        <li class={`reveal delay-${(i + 1) * 100}`}>
+          <div
+            style="
+              background: var(--color-blanco);
+              border: 1px solid var(--color-gris-borde);
+              border-radius: 1rem;
+              padding: 2rem;
+              height: 100%;
+              position: relative;
+              overflow: hidden;
+            "
+          >
+            <!-- Número de fondo decorativo -->
+            <span
+              class="font-titulo"
+              aria-hidden="true"
+              style="
+                position: absolute;
+                top: -0.5rem;
+                right: 1rem;
+                font-size: 5rem;
+                font-weight: 900;
+                color: rgba(43,191,191,0.08);
+                line-height: 1;
+                pointer-events: none;
+                user-select: none;
+              "
+            >
+              {paso.numero}
+            </span>
+
+            <!-- Número visible -->
+            <span
+              class="font-titulo text-turquesa"
+              style="font-size: 0.8125rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 0.75rem;"
+            >
+              Paso {paso.numero}
+            </span>
+
+            <h3
+              class="font-titulo text-carbon"
+              style="font-size: 1.1875rem; font-weight: 700; margin-bottom: 0.75rem;"
+            >
+              {paso.titulo}
+            </h3>
+
+            <p
+              class="font-texto text-carbon-suave"
+              style="font-size: 0.9375rem; line-height: 1.7; position: relative; z-index: 1;"
+            >
+              {paso.descripcion}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 640px) {
+    .proceso-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (min-width: 900px) {
+    .proceso-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    }
+  }
+</style>
+
