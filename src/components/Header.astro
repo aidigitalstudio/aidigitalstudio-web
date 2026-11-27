@@ -7,7 +7,7 @@ const nav = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso',   label: 'Proceso' },
   { href: '#proyectos', label: 'Proyectos' },
-  { href: '#preguntas', label: 'Preguntas' },
+  { href: '#preguntas', label: 'Preguntas frecuentes' },
   { href: '#contacto',  label: 'Contacto' },
 ];
 ---
@@ -56,8 +56,6 @@ const nav = [
               href={href}
               class="font-texto text-carbon-suave"
               style="text-decoration: none; transition: color 0.2s ease; font-weight: 500;"
-              onmouseover="this.style.color='var(--color-turquesa)'"
-              onmouseout="this.style.color=''"
             >
               {label}
             </a>
@@ -72,7 +70,7 @@ const nav = [
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-naranja cta-desktop"
-          style="padding: 0.6rem 1.25rem; font-size: 1.25rem; font-weight: 700;"
+          style="padding: 0.6rem 1.25rem; font-size: 1rem; font-weight: 700;"
           aria-label="Cotizar proyecto por WhatsApp"
         >
           Cotizar
@@ -98,7 +96,8 @@ const nav = [
     <!-- ── Menú mobile ───────────────────────────────────────────────── -->
     <div
       id="mobile-menu"
-      style="display: none; padding-bottom: 1.25rem; border-top: 1px solid var(--color-gris-borde);"
+      hidden
+      style="padding-bottom: 1.25rem; border-top: 1px solid var(--color-gris-borde);"
       aria-hidden="true"
     >
       <ul style="list-style: none; margin: 0; padding: 0;" role="list">
@@ -138,11 +137,14 @@ const nav = [
   }
   .cta-desktop  { display: none; }
   .hamburger    { display: flex; }
+  .desktop-nav a:hover,
+  .desktop-nav a:focus-visible { color: var(--color-turquesa-oscuro); }
 
   @media (min-width: 768px) {
     .desktop-nav  { display: flex; }
     .cta-desktop  { display: inline-flex; }
     .hamburger    { display: none; }
+    #mobile-menu  { display: none !important; }
   }
 </style>
 
@@ -150,18 +152,26 @@ const nav = [
   const toggle = document.getElementById('menu-toggle');
   const menu   = document.getElementById('mobile-menu');
 
+  const closeMobileMenu = () => {
+    if (menu) menu.hidden = true;
+    toggle?.setAttribute('aria-expanded', 'false');
+    menu?.setAttribute('aria-hidden', 'true');
+  };
+
   toggle?.addEventListener('click', () => {
-    const isOpen = menu?.style.display === 'block';
-    if (menu) menu.style.display = isOpen ? 'none' : 'block';
+    const isOpen = menu ? !menu.hidden : false;
+    if (menu) menu.hidden = isOpen;
     toggle.setAttribute('aria-expanded', String(!isOpen));
     menu?.setAttribute('aria-hidden', String(isOpen));
   });
 
   menu?.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', () => {
-      if (menu) menu.style.display = 'none';
-      toggle?.setAttribute('aria-expanded', 'false');
-      menu?.setAttribute('aria-hidden', 'true');
+      closeMobileMenu();
     });
+  });
+
+  window.matchMedia('(min-width: 768px)').addEventListener('change', (event) => {
+    if (event.matches) closeMobileMenu();
   });
 </script>
