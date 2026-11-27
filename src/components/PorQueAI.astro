@@ -15,7 +15,7 @@ const razones = [
   {
     icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
     titulo: 'Trato directo, sin intermediarios',
-    descripcion: 'Conversas conmigo desde el inicio y sabes quién está trabajando en tu proyecto.',
+    descripcion: 'Conversas con nosotras desde el inicio y sabes quiénes llevamos tu proyecto.',
   },
   {
     icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.5 8.5 0 018 8v.5z"/></svg>`,
@@ -115,14 +115,14 @@ const razones = [
 
 <style>
   @media (min-width: 640px) {
-    .razones-grid {
-            grid-template-columns: 1fr 1fr !important;
-    }
+    .razones-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .razones-grid article:last-child { grid-column: 1 / -1; }
   }
   @media (min-width: 900px) {
-    .razones-grid {
-      grid-template-columns: 1fr 1fr !important;
-    }
+    .razones-grid { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
+    .razones-grid article { grid-column: span 2; }
+    .razones-grid article:nth-last-child(2) { grid-column: 2 / span 2; }
+    .razones-grid article:last-child { grid-column: 4 / span 2; }
   }
 </style>
 

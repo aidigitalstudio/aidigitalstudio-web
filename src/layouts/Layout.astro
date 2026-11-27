@@ -15,6 +15,15 @@ const {
 
 const pageUrl = new URL(Astro.url.pathname, `${site.url}/`).toString();
 const ogImageUrl = new URL('/og-image.png', `${site.url}/`).toString();
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.nombre,
+  url: site.url,
+  email: site.correo,
+  areaServed: { '@type': 'Country', name: site.pais },
+  sameAs: [site.instagramUrl],
+};
 ---
 
 <!doctype html>
@@ -24,6 +33,8 @@ const ogImageUrl = new URL('/og-image.png', `${site.url}/`).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
@@ -43,10 +54,10 @@ const ogImageUrl = new URL('/og-image.png', `${site.url}/`).toString();
     <meta name="twitter:image"       content={ogImageUrl} />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)}></script>
   </head>
   <body>
     <slot />

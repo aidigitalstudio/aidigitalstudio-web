@@ -6,11 +6,11 @@
    TOKENS DE COLOR — A&I Digital Studio
    ========================================================= */
 @theme {
-  --color-turquesa:  #2BBFBF;
-  --color-turquesa-oscuro: #1FA8A8;
-  --color-naranja:   #F76E3A;
-  --color-naranja-oscuro: #E55A26;
-  --color-carbon:    #2D2D2D;
+  --color-turquesa:  #43BAD0;
+  --color-turquesa-oscuro: #176f6f;
+  --color-naranja:   #EC5D16;
+  --color-naranja-oscuro: #C2410C;
+  --color-carbon:    #2C3E50;
   --color-carbon-suave: #4A4A4A;
   --color-blanco:    #FFFFFF;
   --color-gris-claro:#F7F7F7;
@@ -34,7 +34,7 @@
   .bg-gris-claro     { background-color: var(--color-gris-claro); }
 
   .text-turquesa     { color: #176f6f; }
-  .text-naranja      { color: var(--color-naranja); }
+  .text-naranja      { color: var(--color-naranja-oscuro); }
   .text-carbon       { color: var(--color-carbon); }
   .text-carbon-suave { color: var(--color-carbon-suave); }
   .text-blanco       { color: var(--color-blanco); }
@@ -80,6 +80,12 @@ h1, h2, h3, h4 {
   font-family: var(--font-titulo);
   line-height: 1.2;
   margin: 0;
+}
+
+h1, h2 {
+  color: var(--color-carbon);
+  font-weight: 700;
+  text-wrap: balance;
 }
 
 p { margin: 0; }
@@ -155,19 +161,21 @@ p { margin: 0; }
 
 .btn-naranja {
   background-color: var(--color-naranja);
-  color: #1f1f1f;
+  color: var(--color-blanco);
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 .btn-naranja:hover, .btn-naranja:focus-visible {
-  background-color: var(--color-naranja);
-  box-shadow: 0 4px 16px rgba(247,110,58,0.35);
+  background-color: var(--color-naranja-oscuro);
+  box-shadow: 0 4px 16px rgba(236,93,22,0.35);
 }
 
 .btn-turquesa {
-  background-color: var(--color-turquesa);
+  background-color: var(--color-turquesa-oscuro);
   color: var(--color-blanco);
 }
 .btn-turquesa:hover, .btn-turquesa:focus-visible {
-  background-color: var(--color-turquesa-oscuro);
+  background-color: #125858;
   box-shadow: 0 4px 16px rgba(43,191,191,0.35);
 }
 
@@ -177,7 +185,7 @@ p { margin: 0; }
   border: 2px solid #176f6f;
 }
 .btn-outline:hover, .btn-outline:focus-visible {
-  background-color: #176f6f;
+  background-color: var(--color-turquesa-oscuro);
   color: var(--color-blanco);
 }
 
