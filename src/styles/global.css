@@ -134,9 +134,19 @@ p { margin: 0; }
   border-radius: 0.5rem;
   background: var(--color-blanco);
   color: var(--color-carbon);
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  font-size: 0.875rem;
   box-shadow: 0 4px 16px rgba(45,45,45,0.16);
+  text-decoration: none;
+  transition: transform 0.2s ease;
 }
-.skip-link:focus { transform: translateY(0); }
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid #176f6f;
+  outline-offset: 3px;
+}
+.skip-link:focus-visible { transform: translateY(0); }
 
 /* =========================================================
    BOTONES BASE

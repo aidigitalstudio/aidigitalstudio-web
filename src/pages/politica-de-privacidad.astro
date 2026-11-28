@@ -1,0 +1,98 @@
+---
+// BORRADOR — pendiente de revisión por A&I Digital Studio antes de publicar
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+<Layout
+  title="Política de privacidad · A&I Digital Studio"
+  description="Cómo A&I Digital Studio gestiona la información que recibes cuando nos escribes por WhatsApp o correo."
+>
+  <main id="main-content" style="max-width:720px;margin-inline:auto;padding:clamp(4rem,8vw,6rem) 1.25rem;">
+
+    <p style="display:inline-block;margin-bottom:2rem;padding:.35rem .85rem;border-radius:2rem;background:#fef3cd;color:#7c5c00;font:700 .72rem 'Montserrat Variable',sans-serif;letter-spacing:.06em;text-transform:uppercase;">
+      Borrador — pendiente de revisión
+    </p>
+
+    <h1 style="font:700 clamp(1.75rem,4vw,2.5rem)/1.15 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:1rem;">
+      Política de privacidad
+    </h1>
+    <p style="font-size:.88rem;color:#4a4a4a;margin-bottom:3rem;">
+      Última actualización: noviembre 2026 · <strong>Borrador sujeto a revisión</strong>
+    </p>
+
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Quiénes somos
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        A&I Digital Studio es un estudio independiente de desarrollo web y presencia digital con sede en Panamá.
+        Puedes contactarnos en <a href={`mailto:${site.correo}`} style="color:#176f6f;">{site.correo}</a> o por WhatsApp al {site.whatsappNumero} (solo mensajes de texto).
+      </p>
+    </section>
+
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Este sitio no recopila datos automáticamente
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        El sitio web de A&I Digital Studio no tiene formularios de contacto, cookies de seguimiento, herramientas de analítica ni píxeles de publicidad.
+        No recopilamos ningún dato tuyo de forma automática mientras navegas.
+      </p>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;margin-top:.85rem;">
+        Si en el futuro se agrega analítica u otras herramientas que recopilen datos, esta política se actualizará antes de activarlas.
+      </p>
+    </section>
+
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Contacto por WhatsApp
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        Los botones "Cotizar" y "Escríbenos por WhatsApp" abren un chat en <strong>wa.me</strong>, el servicio de mensajería de WhatsApp (Meta Platforms, Inc.).
+        Al pulsar ese botón tu dispositivo abre WhatsApp directamente; A&I Digital Studio no intercepta ni almacena nada antes de que elijas enviar el mensaje.
+      </p>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;margin-top:.85rem;">
+        Una vez que nos escribes, recibimos la información que compartes en esa conversación: tu nombre de perfil de WhatsApp, tu número de teléfono y el contenido de los mensajes.
+        Usamos esa información únicamente para responder tu consulta y, si lo acordamos, para gestionar el proyecto.
+      </p>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;margin-top:.85rem;">
+        El uso que WhatsApp hace de tus datos está regido por su propia política de privacidad, que puedes consultar en <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#176f6f;">whatsapp.com/legal/privacy-policy</a>.
+      </p>
+    </section>
+
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Contacto por correo electrónico
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        Si nos escribes a <a href={`mailto:${site.correo}`} style="color:#176f6f;">{site.correo}</a>, recibimos tu dirección de correo y el contenido de tu mensaje.
+        Usamos esa información para responderte y, si avanzamos en un proyecto, para coordinar el trabajo.
+        No compartimos tu correo con terceros ni lo usamos para enviarte comunicaciones no solicitadas.
+      </p>
+    </section>
+
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Cómo pedir que borremos tu información
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        Si en algún momento quieres que eliminemos la información que nos compartiste, escríbenos a <a href={`mailto:${site.correo}`} style="color:#176f6f;">{site.correo}</a> con el asunto "Eliminar mis datos".
+        Atenderemos tu solicitud en un plazo razonable.
+      </p>
+    </section>
+
+    <section style="margin-bottom:3rem;">
+      <h2 style="font:700 1.15rem/1.3 'Montserrat Variable',sans-serif;color:#2C3E50;margin-bottom:.75rem;">
+        Contacto
+      </h2>
+      <p style="font-size:.95rem;line-height:1.75;color:#4a4a4a;">
+        Para cualquier pregunta sobre esta política, escríbenos a <a href={`mailto:${site.correo}`} style="color:#176f6f;">{site.correo}</a>.
+      </p>
+    </section>
+
+    <a href="/" style="display:inline-flex;align-items:center;gap:.45rem;color:#176f6f;font:600 .9rem 'Montserrat Variable',sans-serif;">
+      ← Volver al inicio
+    </a>
+
+  </main>
+</Layout>

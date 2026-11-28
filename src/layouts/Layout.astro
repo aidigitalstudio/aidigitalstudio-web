@@ -19,8 +19,18 @@ const businessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: site.nombre,
+  description: "Diseñamos páginas web funcionales y presencia digital para pequeños negocios en Panamá, con cotización directa y acompañamiento cercano.",
   url: site.url,
   email: site.correo,
+  telephone: site.whatsappNumero,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL('/logos/logo-aidigitalstudio.png', `${site.url}/`).toString(),
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'PA',
+  },
   areaServed: { '@type': 'Country', name: site.pais },
   sameAs: [site.instagramUrl],
 };
