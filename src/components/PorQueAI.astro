@@ -1,5 +1,6 @@
 ---
 // src/components/PorQueAI.astro
+import { whatsappUrl } from '../data/site';
 
 const razones = [
   {
@@ -15,7 +16,7 @@ const razones = [
   {
     icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
     titulo: 'Trato directo, sin intermediarios',
-    descripcion: 'Conversas con nosotras desde el inicio y sabes quiénes llevamos tu proyecto.',
+    descripcion: 'Conversas directamente con quien lleva tu proyecto desde el inicio, sin intermediarios ni capas de por medio.',
   },
   {
     icono: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.5 8.5 0 018 8v.5z"/></svg>`,
@@ -109,6 +110,16 @@ const razones = [
           </p>
         </article>
       ))}
+    </div>
+
+    <div class="porquea-cta reveal" style="margin-top:3.5rem;text-align:center;padding:2.5rem;background:rgba(43,186,208,0.07);border-radius:1rem;border:1px solid rgba(43,186,208,0.18);">
+      <p class="font-titulo text-carbon" style="font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:700;margin-bottom:1.25rem;">
+        ¿Tu negocio todavía no tiene página web?<br/>
+        <span style="color:var(--color-turquesa-oscuro);">Conversemos sin compromiso.</span>
+      </p>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-naranja" aria-label="Escribirnos por WhatsApp para hablar de tu proyecto">
+        Escribirnos por WhatsApp ↗
+      </a>
     </div>
   </div>
 </section>

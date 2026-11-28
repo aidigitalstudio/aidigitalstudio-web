@@ -21,8 +21,8 @@ export const site = {
   url: "https://aidigitalstudio-web.pages.dev",
 
   proyectos: [
-    { nombre: "VETECHI", estado: "En desarrollo", situacion: "Clínica veterinaria que necesitaba una presencia digital clara y profesional.", solucion: "Sitio web con información médica, agenda de citas, perfil de mascotas y contacto directo con el equipo.", url: "https://vetechi-landing.pages.dev/es/", tipo: "veterinaria" },
-    { nombre: "PMF Tours", estado: "Demostrativo", situacion: "Propuesta demostrativa para una agencia de turismo en Panamá.", solucion: "Vitrina visual de destinos y flujo pensado para facilitar consultas y reservas por WhatsApp.", url: "https://pmftours.github.io/pmftours/", tipo: "turismo" },
+    { nombre: "VETECHI", estado: "En desarrollo", situacion: "Clínica veterinaria que necesitaba una presencia digital clara y profesional.", solucion: "Sitio web con información médica, perfil de mascotas y contacto directo con el equipo por WhatsApp.", resultado: "Presencia digital profesional, diseño adaptable a móvil y flujo de contacto directo listo para publicación con dominio propio.", imagen: "/images/proyectos/vetechi-pantalla.png", url: "https://vetechi-landing.pages.dev/es/", tipo: "veterinaria" },
+    { nombre: "PMF Tours", estado: "Demostrativo", situacion: "Propuesta demostrativa para una agencia de turismo en Panamá.", solucion: "Vitrina visual de destinos y flujo pensado para facilitar consultas y reservas por WhatsApp.", resultado: "Sitio demostrativo con identidad visual clara, presentación de destinos y flujo de consulta directo a WhatsApp, listo para adaptarse al cliente final.", imagen: "/images/proyectos/pmftours-pantalla.png", url: "https://pmftours.github.io/pmftours/", tipo: "turismo" },
   ],
 };
 
